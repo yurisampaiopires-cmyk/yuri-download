@@ -1,15 +1,149 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Download Page</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Acesso Exclusivo - YuriSampaio</title>
+
+<style>
+body{
+    margin:0;
+    font-family: Arial, sans-serif;
+    background:#0f0f0f;
+    color:white;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    height:100vh;
+}
+
+.card{
+    background:#1c1c1c;
+    width:90%;
+    max-width:400px;
+    padding:25px;
+    border-radius:15px;
+    box-shadow:0 0 25px rgba(0,255,255,0.2);
+}
+
+h1{
+    font-size:18px;
+    text-align:center;
+}
+
+p{
+    font-size:13px;
+    text-align:center;
+    color:#aaa;
+}
+
+.progress{
+    text-align:right;
+    font-size:12px;
+    color:#aaa;
+    margin-bottom:10px;
+}
+
+.task{
+    background:#2a2a2a;
+    padding:12px;
+    border-radius:8px;
+    margin-top:10px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+button{
+    padding:8px 12px;
+    border:none;
+    border-radius:6px;
+    cursor:pointer;
+}
+
+.subscribe{
+    background:red;
+    color:white;
+}
+
+.locked{
+    background:#333;
+    color:#777;
+    width:100%;
+    margin-top:15px;
+    padding:12px;
+}
+
+.unlocked{
+    background:cyan;
+    color:black;
+}
+</style>
 </head>
+
 <body>
-    <h1>Download Your File</h1>
-    <p>Click the button below to download the file:</p>
-    <a href="your_file_url_here" download>
-        <button>Download File</button>
-    </a>
+
+<div class="card">
+
+<h1>Canal: yuripro007J</h1>
+<p>Complete as ações abaixo para liberar o download 👇</p>
+
+<div class="progress" id="progress">Progresso: 0/2</div>
+
+<div class="task">
+<span>Se inscreva no canal</span>
+<button class="subscribe" onclick="acao1()">Ir</button>
+</div>
+
+<div class="task">
+<span>Ative o sininho 🔔</span>
+<button class="subscribe" onclick="acao2()">Fazer</button>
+</div>
+
+<button class="locked" id="acessar" disabled>
+🔒 Acesse o conteúdo
+</button>
+
+</div>
+
+<script>
+let passo1=false;
+let passo2=false;
+
+function atualizar(){
+let total=0;
+if(passo1) total++;
+if(passo2) total++;
+document.getElementById("progress").innerText="Progresso: "+total+"/2";
+
+if(total==2){
+let btn=document.getElementById("acessar");
+btn.disabled=false;
+btn.classList.remove("locked");
+btn.classList.add("unlocked");
+btn.innerText="📥 Liberar Download";
+btn.onclick=function(){
+window.location.href="https://www.mediafire.com/file/rb3sjah6bccbgix/HOLOGRAMA+CIANO-HS+AUXLIO.zip/file?dkey=898126ka25k&r=154";
+}
+}
+}
+
+function acao1(){
+passo1=true;
+window.open("https://www.youtube.com/@yurisampaio8602", "_blank");
+atualizar();
+}
+
+function acao2(){
+if(!passo1){
+alert("Primeiro se inscreva no canal!");
+return;
+}
+passo2=true;
+alert("Download liberado!");
+atualizar();
+}
+</script>
+
 </body>
 </html>
